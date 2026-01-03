@@ -18,17 +18,23 @@ This project demonstrates the use of an LLM (Claude) with the Amadeus blockchain
 ## Installation
 
 1. Clone the repository
+```bash
+  git clone https://github.com/czDamian/amadeus-agent.git
+```
 2. Install the dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+  npm install
+```
 
 ## Configuration
 
 Create a `.env` file in the root directory and add the following environment variables:
 
 ```env
+# mandatory
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
+
+# optional
 AMA_WALLET_ADDRESS=your_amadeus_wallet_address_here
 AMADEUS_MAINNET_RPC=https://node.ama.one
 AMADEUS_TESTNET_RPC=https://testnet.node.ama.one
