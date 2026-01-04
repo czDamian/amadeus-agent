@@ -1,0 +1,287 @@
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "tools": [
+      {
+        "description": "Creates an unsigned transaction blob for transferring assets between accounts",
+        "inputSchema": {
+          "properties": {
+            "amount": {
+              "type": "string"
+            },
+            "destination": {
+              "type": "string"
+            },
+            "memo": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "symbol",
+            "source",
+            "destination",
+            "amount"
+          ],
+          "type": "object"
+        },
+        "name": "create_transfer"
+      },
+      {
+        "description": "Submits a signed transaction to the blockchain network",
+        "inputSchema": {
+          "properties": {
+            "signature": {
+              "type": "string"
+            },
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction",
+            "signature"
+          ],
+          "type": "object"
+        },
+        "name": "submit_transaction"
+      },
+      {
+        "description": "Queries the balance of an account across all supported assets",
+        "inputSchema": {
+          "properties": {
+            "address": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address"
+          ],
+          "type": "object"
+        },
+        "name": "get_account_balance"
+      },
+      {
+        "description": "Retrieves current blockchain statistics",
+        "inputSchema": {
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_chain_stats"
+      },
+      {
+        "description": "Retrieves blockchain entries at a specific height",
+        "inputSchema": {
+          "properties": {
+            "height": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "height"
+          ],
+          "type": "object"
+        },
+        "name": "get_block_by_height"
+      },
+      {
+        "description": "Retrieves a specific transaction by its hash",
+        "inputSchema": {
+          "properties": {
+            "tx_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tx_hash"
+          ],
+          "type": "object"
+        },
+        "name": "get_transaction"
+      },
+      {
+        "description": "Retrieves transaction history for a specific account",
+        "inputSchema": {
+          "properties": {
+            "address": {
+              "type": "string"
+            },
+            "limit": {
+              "type": "number"
+            },
+            "offset": {
+              "type": "number"
+            },
+            "sort": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address"
+          ],
+          "type": "object"
+        },
+        "name": "get_transaction_history"
+      },
+      {
+        "description": "Retrieves the list of current validator nodes",
+        "inputSchema": {
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_validators"
+      },
+      {
+        "description": "Retrieves a specific value from smart contract storage",
+        "inputSchema": {
+          "properties": {
+            "contract_address": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "contract_address",
+            "key"
+          ],
+          "type": "object"
+        },
+        "name": "get_contract_state"
+      },
+      {
+        "description": "Claims testnet AMA tokens to the specified address (once per 24 hours per IP)",
+        "inputSchema": {
+          "properties": {
+            "address": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address"
+          ],
+          "type": "object"
+        },
+        "name": "claim_testnet_ama"
+      },
+      {
+        "description": "Get the latest blockchain entry",
+        "inputSchema": {
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_entry_tip"
+      },
+      {
+        "description": "Get entry by hash",
+        "inputSchema": {
+          "properties": {
+            "hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hash"
+          ],
+          "type": "object"
+        },
+        "name": "get_entry_by_hash"
+      },
+      {
+        "description": "Get block at height with full transactions",
+        "inputSchema": {
+          "properties": {
+            "height": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "height"
+          ],
+          "type": "object"
+        },
+        "name": "get_block_with_txs"
+      },
+      {
+        "description": "Get all transactions in an entry",
+        "inputSchema": {
+          "properties": {
+            "entry_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "entry_hash"
+          ],
+          "type": "object"
+        },
+        "name": "get_txs_in_entry"
+      },
+      {
+        "description": "Get validator mining scores (optionally for specific address)",
+        "inputSchema": {
+          "properties": {
+            "address": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_epoch_score"
+      },
+      {
+        "description": "Get emission address for a validator",
+        "inputSchema": {
+          "properties": {
+            "address": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "address"
+          ],
+          "type": "object"
+        },
+        "name": "get_emission_address"
+      },
+      {
+        "description": "Get top AMA token holders",
+        "inputSchema": {
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_richlist"
+      },
+      {
+        "description": "Get connected peer nodes",
+        "inputSchema": {
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_nodes"
+      },
+      {
+        "description": "Get validators removed this epoch",
+        "inputSchema": {
+          "properties": {},
+          "required": [],
+          "type": "object"
+        },
+        "name": "get_removed_validators"
+      }
+    ]
+  }
+}

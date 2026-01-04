@@ -7,7 +7,7 @@ This project demonstrates the use of an LLM (Claude) with the Amadeus blockchain
 - **Blockchain Queries**: Retrieve current block height, transaction history, and validator information.
 - **Account Management**: Check AMA token balances and other assets for specific addresses.
 - **Transaction Simulation**: Build and sign transaction blobs (simulation only, does not broadcast to mainnet/testnet without specific configuration).
-- **MCP Integration**: Uses the Amadeus MCP server (`https://mcp.ama.one/rpc`) to execute tools defined in `amadeusTools.js`.
+- **MCP Integration**: Uses the Amadeus MCP server (`https://mcp.ama.one/rpc`) to dynamically fetch and execute tools.
 
 ## Prerequisites
 
@@ -51,14 +51,14 @@ node test.js
 The script will:
 1. Initialize the Anthropic client.
 2. Send a prompt to Claude (eg: "using the amadeus blockchain tools, get the balance of the first validator").
-3. Claude will decide which tools to call based on the definitions in `amadeusTools.js`.
+3. Claude will decide which tools to call based on the dynamically fetched definitions.
 4. The script executes the tools against the Amadeus MCP server and returns the results to Claude.
 5. Claude generates a final natural language response.
 
 ## Project Structure
 
-- **`amadeusTools.js`**: Contains the definitions of the tools available to the LLM (e.g., `get_chain_stats`, `get_account_balance`).
-- **`test.js`**: The main entry point. It sets up the MCP integration, handles the conversation loop with Claude, and executes the tool calls.
+- **`test.js`**: The main entry point. It sets up the MCP integration, dynamically fetches tools, handles the conversation loop with Claude, and executes the tool calls.
+- **`amadeus_mcp_tools.json`**: A JSON file containing a snapshot of the available tools. **Note:** This file is for reference purposes only; the actual tools are fetched dynamically from the MCP server at runtime.
 
 ## License
 
